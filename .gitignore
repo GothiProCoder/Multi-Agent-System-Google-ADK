@@ -1,0 +1,9 @@
+# gitignore file
+# Ignore environment variables file
+.env
+#ignore .vscode directory
+.vscode/
+#ignore virtual environment
+internshala/
+# ignore pycache under any directory
+**/__pycache__/
