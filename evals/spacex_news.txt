@@ -1,0 +1,22 @@
+🎯 Goal:
+  Give some news about SpaceX.
+
+🧠 Planner Order:
+  [ news_agent → summarizer_agent ]
+
+🔍 Agent Outputs:
+  1. news_agent:
+     “News Articles Fetched Successfully”
+  2. summarizer_agent (final_response):
+     * **Starlink Production:** SpaceX is producing tens of thousands of
+       Starlink kits daily in the USA and investing heavily in semiconductor
+       production.
+     * **Starship Explosion:** Ship 36 experienced a rapid unscheduled
+       disassembly due to a pressure vessel failure.
+     * **Mars Journey:** Plan proposed to shorten the journey to Mars to
+       90 days with SpaceX’s support.
+     * **Ground Test Explosion:** Starship exploded during a static fire test
+       at Starbase, likely from a pressurised tank failure.
+
+✅ Final Result:
+  Goal achieved on first run.
