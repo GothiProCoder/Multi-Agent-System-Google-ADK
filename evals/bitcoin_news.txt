@@ -1,0 +1,23 @@
+🎯 Goal:
+  Give some Bitcoin news.
+
+🧠 Planner Order:
+  [ news_agent → summarizer_agent ]
+
+🔍 Agent Outputs:
+  1. news_agent:
+     “News Articles Fetched Successfully”
+  2. summarizer_agent (final_response):
+     * **2x Bitcoin Strategy ETF (BITX):** Opened at $53.25, last traded
+       at $52.70 (volume: 1,931,144).
+     * **Analyst Outlook:** BTC may surge parabolically, akin to gold’s
+       2024 breakout.
+     * **On-Chain Metrics:** Despite price near all-time high, metrics
+       crashed to bear-market levels.
+     * **Price Dip:** BTC slipped below $102,000 after a high of $106,000,
+       stabilizing around $104,000.
+     * **Bitcoin Stocks:** Marathon Digital, IREN, Riot Platforms,
+       Cleanspark, and TeraWulf are worth watching.
+
+✅ Final Result:
+  Goal achieved on first run.
