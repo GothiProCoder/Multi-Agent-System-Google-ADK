@@ -4,6 +4,6 @@
 #ignore .vscode directory
 .vscode/
 #ignore virtual environment
-internshala/
+venv/
 # ignore pycache under any directory
 **/__pycache__/
