@@ -114,9 +114,11 @@ GOOGLE_GENAI_USE_VERTEXAI = FALSE
 GOOGLE_API_KEY = YOUR_GOOGLE_API_KEY
 NEWS_API_KEY = YOUR_NEWS_API_KEY
 ```
-**The API keys can be acquired at free of cost. 😉**
-**GOOGLE_API_KEY**: [Click Here!](https://aistudio.google.com/apikey)
-**NEWS_API_KEY**: [Click Here!](https://newsapi.org/register)
+
+**The API keys can be acquired at free of cost.** 😉
+
+- **GOOGLE_API_KEY**: [Click Here!](https://aistudio.google.com/apikey)
+- **NEWS_API_KEY**: [Click Here!](https://newsapi.org/register)
 
 ### 5. Run the System
 
