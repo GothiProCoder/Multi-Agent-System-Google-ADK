@@ -1,0 +1,20 @@
+🎯 Goal:
+  What would the weather be like tomorrow in Bengaluru?
+
+🧠 Planner Order:
+  [ weather_agent → summarizer_agent ]
+
+🔍 Agent Outputs:
+  1. weather_agent:
+     “Weather Information fetched successfully”
+  2. summarizer_agent (final_response):
+     “The weather in Bengaluru tomorrow (June 24, 2025) will be
+      characterized by a high level of cloud cover throughout the day,
+      with a chance of light rain. The temperature will range from
+      a minimum of 20.1 °C to a maximum of 26.8 °C. There’s a precipitation
+      probability between 3% and 23%, with a total of 0.3 mm expected.
+      Wind speeds will reach up to 24.1 km/h (gusts up to 60.5 km/h).
+      Visibility will be excellent at 24 140 m.”
+
+✅ Final Result:
+  Goal achieved on first run.
