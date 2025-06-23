@@ -1,0 +1,26 @@
+🎯 Goal:
+  Find the next SpaceX launch, check weather at that location,
+  then summarize if it may be delayed.
+
+🧠 Planner Order:
+  [ launches_agent → weather_agent → summarizer_agent ]
+
+🔍 Agent Outputs:
+  1. launches_agent:
+     “Launch Information Fetched Successfully”
+  2. weather_agent:
+     “Weather Information fetched successfully”
+  3. summarizer_agent (final_response):
+     “SpaceX is scheduled to launch a Falcon 9 Block 5 rocket
+      carrying a batch of 27 Starlink satellites (Group 10-23)
+      on June 23, 2025, from Cape Canaveral SFS, FL, USA.  
+      The weather forecast for that day includes a maximum
+      temperature of 30.8 °C and a minimum of 23.9 °C, with no
+      precipitation expected. Wind speeds may reach up to 14.8 km/h,
+      with gusts up to 21.6 km/h. There’s a low precipitation
+      probability and good visibility. Therefore, based on the
+      weather data, there doesn’t seem to be any immediate indicators
+      for a potential launch delay.”
+
+✅ Final Result:
+  Goal achieved on first run.
