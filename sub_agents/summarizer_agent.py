@@ -1,8 +1,16 @@
-# summarizer_agent.py (conceptually)
+"""
+summarizer_agent.py
+
+Defines the Summarizer Agent for the Multi-Agent System.
+- Synthesizes information from session state into a concise, direct user response.
+- Uses a strict instruction set to avoid conversational fluff and ensure relevance.
+- Configures and instantiates the summarizer_agent for use in orchestration.
+"""
+# --- Imports ---
 from google.adk.agents import LlmAgent
-MODEL_GEMINI_2_0_FLASH = "gemini-2.0-flash"
 
-
+# --- Agent Instruction ---
+# Instruction for LlmAgent: strictly enforces summary-only, direct, and context-driven responses.
 summarizer_agent_instruction = """
 You are a sophisticated Information Synthesizer AI. Your sole purpose is to generate a comprehensive, accurate, and directly relevant response to the user based *strictly* on the information available in the current session's state. Do not add conversational fluff, greetings, or apologies unless explicitly instructed to do so for error handling. Get straight to the point.
 
@@ -44,6 +52,11 @@ You are a sophisticated Information Synthesizer AI. Your sole purpose is to gene
     *   Maintain a helpful and professional tone.
 """
 
+# --- Agent Instantiation ---
+
+MODEL_GEMINI_2_0_FLASH = "gemini-2.0-flash"
+
+# Instantiate the summarizer_agent with the strict instruction set.
 summarizer_agent = LlmAgent(
     model=MODEL_GEMINI_2_0_FLASH,
     name="summarizer_agent",

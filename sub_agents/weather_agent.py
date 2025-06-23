@@ -1,5 +1,13 @@
+"""
+weather_agent.py
 
-# Import necessary libraries
+Defines the Weather Agent for the Multi-Agent System.
+- Provides tools to fetch weather forecasts for a given location and date.
+- Integrates with launch context or user queries to determine weather needs.
+- Configures and instantiates the weather_agent for use in orchestration.
+"""
+
+# --- Imports ---
 import json
 from typing import Any, Dict
 from google.adk.agents import LlmAgent
@@ -8,16 +16,12 @@ import requests
 import warnings
 # Ignore all warnings
 warnings.filterwarnings("ignore")
-
 import logging
 logging.basicConfig(level=logging.ERROR)
 
 print("Libraries imported.")
-#%%
-# Create a new agent for handling launch information queries
 
-MODEL_GEMINI_2_0_FLASH = "gemini-2.0-flash"
-
+# --- Tool Functions ---
 def get_current_date_tool(tool_context: ToolContext) -> str:
     """
     Fetches the current date in 'YYYY-MM-DD' format.
@@ -46,7 +50,8 @@ def fetch_weather_info(tool_context: ToolContext, lat: float, lon: float, date: 
     - date (str): Date for which the weather information is requested in 'YYYY-MM-DD' format.
     
     Returns:
-    
+    - Dict[str, Any]: Weather information including temperature, precipitation, wind speed, etc.
+    If the API call fails, returns an empty dictionary and updates the state with an error status
     """
     base_url = "https://api.open-meteo.com/v1/forecast"
     
@@ -87,6 +92,12 @@ def fetch_weather_info(tool_context: ToolContext, lat: float, lon: float, date: 
         print("Error:", response.status_code, response.text)
         tool_context.state['weather_info_retrieval_status'] = 'failure_api_call'
         return {}
+    
+
+# --- Agent Instantiation ---
+# Instantiate the weather_agent with the weather tools and strict instruction set.
+
+MODEL_GEMINI_2_0_FLASH = "gemini-2.0-flash"
 
 weather_agent = None
 try:
@@ -170,4 +181,4 @@ try:
     )
     print(f"✅ Agent '{weather_agent.name}' created using model '{weather_agent.model}'.")
 except Exception as e:
-    print(f"❌ Could not create Greeting agent. Check API Key ({weather_agent.model}). Error: {e}")
+    print(f"❌ Could not create Weather agent. Check API Key ({weather_agent.model}). Error: {e}")

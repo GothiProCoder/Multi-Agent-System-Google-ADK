@@ -1,4 +1,14 @@
-# Internshala Project/coordinator_file.py
+"""
+agent.py
+
+Main orchestration script for the Multi-Agent System using Google ADK.
+- Loads environment variables and sub-agents.
+- Defines a master planner agent to generate execution plans.
+- Implements a dynamic orchestrator to run sub-agents in sequence.
+- Sets up the runner and session for the application.
+"""
+
+# --- Import Statements ---
 import sys
 import os
 from dotenv import load_dotenv
@@ -16,8 +26,9 @@ from google.adk.sessions import InMemorySessionService
 APP_NAME = "google_adk_app"
 USER_ID = "12345"
 SESSION_ID = "123344"
+PLANNER_MODEL_NAME = "gemini-2.0-flash"
 
-# --- Load Environment Variables ---
+# --- Environment Setup ---
 print("Attempting to load .env file from coordinator_file.py...")
 dotenv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env')
 if os.path.exists(dotenv_path):
@@ -27,15 +38,13 @@ if os.path.exists(dotenv_path):
 else:
     print(f"⚠️ .env file not found at {dotenv_path}.")
 
+# Add the current directory to sys.path to allow local imports
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-#Import sub agents from sub_agents package
+# --- Sub-Agent Imports ---
 from sub_agents import launches_agent, weather_agent, summarizer_agent, news_agent
-
-PLANNER_MODEL_NAME = os.getenv("GEMINI_MODEL_FOR_PLANNER", "gemini-2.0-flash")
-print(f"Using planner model: {PLANNER_MODEL_NAME}")
-
-# --- Master Planner Agent Definition ---
+ 
+# --- Master Planner Agent ---
 MASTER_PLANNER_INSTRUCTION = """
 You are a master AI task planner. Your goal is to take the user's current query and break it down into an ordered sequence of tasks that can be performed by specialized sub-agents.
 
@@ -47,8 +56,6 @@ Available Sub-Agents and their functions:
 
 Based on the user's current query, determine the necessary sequence of sub-agents to call.
 Your output MUST be a list of strings, where each string is the exact name of the sub-agent to be called in order.
-
-
 
 Examples:
 - If the user's current query is "What's the next SpaceX launch and the weather for it?",
@@ -77,6 +84,7 @@ master_planner_agent = LlmAgent(
 )
 print(f"✅ MasterPlannerAgent '{master_planner_agent.name}' created.")
 
+# --- Dynamic Orchestrator Agent ---
 class DynamicOrchestratorAgent(BaseAgent):
     """
     Reads a JSON list of agent-names from ctx.session.state['agent_execution_plan_str'],
@@ -89,7 +97,7 @@ class DynamicOrchestratorAgent(BaseAgent):
     weather_agent:  LlmAgent
     summarizer_agent:  LlmAgent
     news_agent: LlmAgent
-    # …and any others
+    # …and any others (if adding more sub-agents in the future, add them here)
 
     model_config = {"arbitrary_types_allowed": True}
 
@@ -117,12 +125,8 @@ class DynamicOrchestratorAgent(BaseAgent):
     async def _run_async_impl(
         self, ctx: InvocationContext
     ) -> AsyncGenerator[Event, None]:
-        # 1) Ensure the original user query is in state for downstream agents
-        #    (you could also key it under e.g. "user_query")
-        # if "user_query" not in ctx.session.state:
-        #     ctx.session.state["user_query"] = ctx.invocation.message.content.parts[0].text
-
-        # 2) Parse the plan string into a Python list
+       
+        # 1) Parse the plan string into a Python list
         plan_str = ctx.session.state.get("agent_execution_plan_str", "[]")
         try:
             plan: List[str] = json.loads(plan_str)
@@ -130,7 +134,7 @@ class DynamicOrchestratorAgent(BaseAgent):
             # If plan is malformed, bail out
             return
 
-        # 3) For each agent name in the plan, look up the attribute and invoke it
+        # 2) For each agent name in the plan, look up the attribute and invoke it
         for agent_name in plan:
             agent = getattr(self, agent_name, None)
             if agent is None:
@@ -151,7 +155,7 @@ orchestrator_agent = DynamicOrchestratorAgent(
 )
 
 
-# --- Setup Runner and Session ---
+# --- Runner and Session Setup ---
 session_service = InMemorySessionService()
 
 session = session_service.create_session(

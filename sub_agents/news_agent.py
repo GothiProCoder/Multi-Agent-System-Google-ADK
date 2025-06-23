@@ -1,6 +1,13 @@
-#%%
+"""
+news_agent.py
 
-# Import necessary libraries
+Defines the News Agent for the Multi-Agent System.
+- Fetches news articles from NewsAPI based on user queries and session context.
+- Provides a tool for LlmAgent to access news data.
+- Configures and instantiates the news_agent for use in orchestration.
+"""
+
+# --- Imports ---
 from typing import Any, Dict, List, Optional
 import os
 from google.adk.agents import LlmAgent
@@ -14,11 +21,7 @@ import requests
 
 print("Libraries imported.")
 
-# Create a new agent for handling launch information queries
-
-MODEL_GEMINI_2_0_FLASH = "gemini-2.0-flash"
-
-# Step 3: Dynamic launch info fetcher
+# --- News Fetching Tool ---
 def fetch_news_articles(
     tool_context: ToolContext,
     q: Optional[str] = None,
@@ -86,7 +89,6 @@ def fetch_news_articles(
 
     articles_to_return = []
     try:
-        # Replace this with your fetch_with_rotation if you integrate it
         response = requests.get(base_url, params=api_params, timeout=10)
         response.raise_for_status() # Raise an exception for HTTP errors
         json_data = response.json()
@@ -125,8 +127,12 @@ def fetch_news_articles(
         
     return articles_to_return
 
-# %%
+
+MODEL_GEMINI_2_0_FLASH = "gemini-2.0-flash"
 news_agent = None
+
+# --- Agent Instruction ---
+# Instruction for LlmAgent: strictly enforces tool usage and output format for news queries.
 NEWS_AGENT_INSTRUCTION = """
 You are the News Information Agent. **Your sole mission is to call the `fetch_news_articles` tool exactly one time**.
    
@@ -155,9 +161,10 @@ Strict information:
 
 """
 
+# --- Agent Instantiation ---
+# Instantiate the news_agent with the fetch_news_articles tool and strict instruction set.
 try:
     news_agent = LlmAgent(
-        # Using a potentially different/cheaper model for a simple task
         model = MODEL_GEMINI_2_0_FLASH,
         name="news_agent",
         instruction=NEWS_AGENT_INSTRUCTION,
@@ -167,5 +174,3 @@ try:
     print(f"✅ Agent '{news_agent.name}' created using model '{news_agent.model}'.")
 except Exception as e:
     print(f"❌ Could not create News Info agent. Check API Key ({news_agent.model}). Error: {e}")
-
-# %%

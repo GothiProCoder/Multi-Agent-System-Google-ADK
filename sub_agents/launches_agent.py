@@ -1,6 +1,14 @@
-#%%
+"""
+launches_agent.py
 
-# Import necessary libraries
+Defines the Launches Agent for the Multi-Agent System.
+- Fetches and rotates free proxies for web requests.
+- Retrieves rocket launch information from the SpaceDev API.
+- Provides a tool for LlmAgent to access launch data.
+- Configures and instantiates the launches_agent for use in orchestration.
+"""
+
+# --- Imports ---
 from typing import Any, Dict, List
 from google.adk.agents import LlmAgent
 from google.adk.tools import ToolContext
@@ -17,12 +25,16 @@ import time
 
 print("Libraries imported.")
 
-# Create a new agent for handling launch information queries
-
-MODEL_GEMINI_2_0_FLASH = "gemini-2.0-flash"
+# --- Proxy Utilities ---
 
 # Step 1: Get free proxies from a public site
 def get_free_proxies():
+    """
+    Scrapes a list of free HTTPS proxies from a public proxy listing site.
+
+    Returns:
+        List[str]: List of proxy addresses in the format 'http://IP:PORT'.
+    """
     print("🔍 Fetching free proxies...")
     url = "https://free-proxy-list.net/"
     
@@ -52,6 +64,18 @@ def get_free_proxies():
 
 # Step 2: Fetch a URL using rotating proxies & User-Agents
 def fetch_with_rotation(url, proxies, params=None, max_retries=30):
+    """
+    Attempts to fetch a URL using a rotating set of proxies and random User-Agents.
+
+    Args:
+        url (str): The target URL.
+        proxies (List[str]): List of proxy addresses.
+        params (dict, optional): Query parameters for the request.
+        max_retries (int): Maximum number of attempts.
+
+    Returns:
+        dict or None: JSON response if successful, else None.
+    """
     ua = UserAgent()
     tried = set()
 
@@ -87,6 +111,7 @@ def fetch_with_rotation(url, proxies, params=None, max_retries=30):
     print("🚫 All proxies failed or max retries reached.")
     return None
 
+# --- Launch Info Fetching Tool ---
 # Step 3: Dynamic launch info fetcher
 def fetch_launch_info(tool_context: ToolContext, agency: str = "spacex", time_filter: str = "upcoming", count: int = 1) -> List[Dict[str, Any]]:
     """
@@ -166,8 +191,11 @@ def fetch_launch_info(tool_context: ToolContext, agency: str = "spacex", time_fi
 
     return launches
 
-# %%
+
+MODEL_GEMINI_2_0_FLASH = "gemini-2.0-flash"
 launches_agent = None
+
+# Agent instruction for LlmAgent: strictly enforces tool usage and output format for launch queries.
 LAUNCH_AGENT_INSTRUCTION = """
 You are a highly specialized Launch Information Agent. Your **sole and mandatory primary function** is to provide specific, factual data about rocket launches, space missions, and launch schedules. You do not engage in general conversation or provide information outside of this scope.
 
@@ -189,9 +217,9 @@ Simply show a success message if the tool call was successful stating "Launch In
 Under no circumstances should you provide information about topics other than rocket launches, space missions, and schedules, nor should you attempt to answer launch queries without first invoking the 'fetch_launch_info' tool.
 """
 
+# Instantiate the launches_agent with the fetch_launch_info tool and strict instruction set.
 try:
     launches_agent = LlmAgent(
-        # Using a potentially different/cheaper model for a simple task
         model = MODEL_GEMINI_2_0_FLASH,
         name="launches_agent",
         instruction=LAUNCH_AGENT_INSTRUCTION,
