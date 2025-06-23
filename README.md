@@ -6,13 +6,13 @@
 
 <!-- Badges -->
 <p align="center">
-  <a href="https://github.com/GothiProCoder/AI-Powered-Ecommerce-Product-Listing-Generator/stargazers">
-    <img src="https://img.shields.io/github/stars/GothiProCoder/AI-Powered-Ecommerce-Product-Listing-Generator?style=social" alt="Stars">
+  <a href="https://github.com/GothiProCoder/Multi-Agent-System-Google-ADK/stargazers">
+    <img src="https://img.shields.io/github/stars/GothiProCoder/Multi-Agent-System-Google-ADK?style=social" alt="Stars">
   </a>
-  <a href="https://github.com/GothiProCoder/AI-Powered-Ecommerce-Product-Listing-Generator/issues">
-  <img src="https://img.shields.io/github/issues/GothiProCoder/AI-Powered-Ecommerce-Product-Listing-Generator?label=Issues" alt="Issues">
+  <a href="https://github.com/GothiProCoder/Multi-Agent-System-Google-ADK/issues">
+  <img src="https://img.shields.io/github/issues/GothiProCoder/Multi-Agent-System-Google-ADK?label=Issues" alt="Issues">
 </a>
-  <a href="https://github.com/GothiProCoder/AI-Powered-Ecommerce-Product-Listing-Generator/blob/main/LICENSE">
+  <a href="https://github.com/GothiProCoder/Multi-Agent-System-Google-ADK/blob/main/LICENSE">
     <img src="https://cdn.prod.website-files.com/5e0f1144930a8bc8aace526c/65dd9eb5aaca434fac4f1c34_License-MIT-blue.svg" alt="License">
   </a>
 </p>
