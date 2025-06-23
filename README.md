@@ -4,7 +4,22 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=🚀%20Multi-Agent%20System%20(Google%20ADK)&fontSize=30&fontAlignY=40&desc=Rocket%20Launches,%20Weather,%20and%20News%20Orchestration&descAlignY=55&descAlign=50" alt="Project Banner">
 </p>
 
-## Overview
+<!-- Badges -->
+<p align="center">
+  <a href="https://github.com/GothiProCoder/AI-Powered-Ecommerce-Product-Listing-Generator/stargazers">
+    <img src="https://img.shields.io/github/stars/GothiProCoder/AI-Powered-Ecommerce-Product-Listing-Generator?style=social" alt="Stars">
+  </a>
+  <a href="https://github.com/GothiProCoder/AI-Powered-Ecommerce-Product-Listing-Generator/issues">
+  <img src="https://img.shields.io/github/issues/GothiProCoder/AI-Powered-Ecommerce-Product-Listing-Generator?label=Issues" alt="Issues">
+</a>
+  <a href="https://github.com/GothiProCoder/AI-Powered-Ecommerce-Product-Listing-Generator/blob/main/LICENSE">
+    <img src="https://cdn.prod.website-files.com/5e0f1144930a8bc8aace526c/65dd9eb5aaca434fac4f1c34_License-MIT-blue.svg" alt="License">
+  </a>
+</p>
+
+<hr>
+
+##  Overview
 
 Welcome to the **Multi-Agent System** powered by Google ADK!  
 This project is an intelligent orchestration platform that brings together multiple specialized AI agents to answer complex queries about rocket launches, weather forecasts, and related news—all in one seamless conversation.
