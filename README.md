@@ -1,7 +1,7 @@
 # 🚀 Multi-Agent System: Rocket Launches, Weather, and News Orchestration (Google ADK)
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=🚀 Multi-Agent System (Google ADK)&fontSize=30&fontAlignY=40&desc=Rocket Launches, Weather, and News Orchestration&descAlignY=55&descAlign=50" alt="Project Banner">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=🚀%20Multi-Agent%20System%20(Google%20ADK)&fontSize=30&fontAlignY=40&desc=Rocket%20Launches,%20Weather,%20and%20News%20Orchestration&descAlignY=55&descAlign=50" alt="Project Banner">
 </p>
 
 ## Overview
