@@ -1,0 +1,647 @@
+{
+  "eval_set_id": "eval2set",
+  "name": "eval2set",
+  "description": null,
+  "eval_cases": [
+    {
+      "eval_id": "case4b1cda",
+      "conversation": [],
+      "session_input": {
+        "app_name": "Multi-Agent-System (Google ADK)",
+        "user_id": "user",
+        "state": {}
+      },
+      "creation_timestamp": 1750662855.5007465
+    },
+    {
+      "eval_id": "eval2testsession",
+      "conversation": [
+        {
+          "invocation_id": "e-24b75b86-6645-4d1e-a925-7fef56f09b51",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "upcoming nasa launch"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "NASA's upcoming launch is the GSLV Mk II | NISAR (NASA-ISRO Synthetic Aperture Radar), scheduled for July 16, 2025, from Satish Dhawan Space Centre, India (13.7199° N, 80.2304° E). The mission status is awaiting official confirmation, but the date is known with some certainty. The mission aims to use advanced radar imaging to map Earth's land and ice masses, observing complex natural processes and hazards. NASA is providing the L band synthetic aperture radar (SAR), telecommunication subsystem, GPS receivers, a solid-state recorder, and a payload data subsystem. ISRO is providing the satellite bus, an S band synthetic aperture radar, the launch vehicle, and associated launch services.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-0b5c78cf-f7a6-4103-b347-f9899a21fb6c",
+                "args": {
+                  "agency": "nasa",
+                  "time_filter": "upcoming",
+                  "count": 1
+                },
+                "name": "fetch_launch_info"
+              }
+            ],
+            "intermediate_responses": [
+              [
+                "MasterPlannerAgent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "[\"launches_agent\", \"summarizer_agent\"]"
+                  }
+                ]
+              ],
+              [
+                "launches_agent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "Launch Information Fetched Successfully\n"
+                  }
+                ]
+              ]
+            ]
+          },
+          "creation_timestamp": 1750663501.250715
+        },
+        {
+          "invocation_id": "e-31824332-ef75-4e12-8e7d-1b6249a44ce6",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "upcoming spacex launch"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "SpaceX's upcoming launch is the Falcon 9 Block 5 | Starlink Group 10-23, scheduled for June 23, 2025, from Cape Canaveral SFS, FL, USA (28.56194122° N, -80.57735736° E). The launch vehicle successfully inserted its payload(s) into the target orbit(s). This mission will deploy a batch of 27 satellites for the Starlink mega-constellation, which is SpaceX's project for a space-based Internet communication system.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-89e41528-10f0-4e84-912f-53288421c367",
+                "args": {
+                  "agency": "spacex",
+                  "time_filter": "upcoming",
+                  "count": 1
+                },
+                "name": "fetch_launch_info"
+              }
+            ],
+            "intermediate_responses": [
+              [
+                "MasterPlannerAgent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "[\"launches_agent\", \"summarizer_agent\"]"
+                  }
+                ]
+              ],
+              [
+                "launches_agent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "Launch Information Fetched Successfully\n"
+                  }
+                ]
+              ]
+            ]
+          },
+          "creation_timestamp": 1750663521.391774
+        },
+        {
+          "invocation_id": "e-fd596b41-0926-49b4-8d9d-696a53517c84",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what is the weather around the location"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The weather forecast for Cape Canaveral SFS, FL, USA on June 23, 2025, indicates hourly temperatures ranging from 23.9°C to 30.8°C. There is a low precipitation probability throughout the day, with no precipitation expected. Cloud cover will vary, with visibility ranging from 12200m to 29200m. Wind speeds will range from 1.5 km/h to 14.8 km/h, with gusts reaching up to 21.6 km/h. The daily forecast includes a maximum temperature of 30.8°C and a minimum of 23.9°C, with no precipitation expected. The weather code indicates partly cloudy conditions.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-468bca5e-c8e7-4be0-881f-8feb873c4991",
+                "args": {
+                  "date": "2025-06-23",
+                  "lat": 28.56194122,
+                  "lon": -80.57735736
+                },
+                "name": "fetch_weather_info"
+              }
+            ],
+            "intermediate_responses": [
+              [
+                "MasterPlannerAgent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "[\"weather_agent\", \"summarizer_agent\"]"
+                  }
+                ]
+              ],
+              [
+                "weather_agent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "Weather Information fetched successfully\n"
+                  }
+                ]
+              ]
+            ]
+          },
+          "creation_timestamp": 1750663543.411607
+        },
+        {
+          "invocation_id": "e-6badae18-033f-4483-85d1-733b7a898948",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "give some news about spacex"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "Here's the latest news about SpaceX:\n\n*   **Starlink Production:** SpaceX is producing tens of thousands of Starlink kits daily in the USA and investing heavily in semiconductor production.\n*   **Starship Explosion:** Elon Musk reported that Starship Ship 36 experienced a rapid unscheduled disassembly (RUD) during testing due to a failure of a nitrogen composite overwrapped pressure vessel (COPV) within the payload bay.\n*   **Mars Journey:** A NASA scientist has proposed an ambitious plan to shorten the journey to Mars to 90 days with SpaceX's support.\n*   **Starship Explosion during Ground Test:** A SpaceX Starship rocket exploded during a ground test at the Starbase facility in Texas, causing significant damage. The explosion occurred during a static fire test, and preliminary findings suggest a pressurised tank failure in the rocket’s nosecone.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-58b62e1e-86a2-40fd-95d7-7fd6e8b26d98",
+                "args": {
+                  "page": 1,
+                  "searchIn": "title",
+                  "q": "spacex",
+                  "page_size": 5,
+                  "sort_by": "publishedAt"
+                },
+                "name": "fetch_news_articles"
+              }
+            ],
+            "intermediate_responses": [
+              [
+                "MasterPlannerAgent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "[\"news_agent\", \"summarizer_agent\"]"
+                  }
+                ]
+              ],
+              [
+                "news_agent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "News Articles Fetched Successfully"
+                  }
+                ]
+              ]
+            ]
+          },
+          "creation_timestamp": 1750663571.168665
+        },
+        {
+          "invocation_id": "e-1f8a1e91-477c-48bb-84b2-c9c52a754c25",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "give some bitcoin news"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "Here's the latest news about Bitcoin:\n\n*   **2x Bitcoin Strategy ETF (NYSEARCA:BITX):** Shares gapped up prior to trading on Friday, opening at $53.25 after a previous close of $51.06. The shares last traded at $52.70, with a volume of 1,931,144 shares.\n*   **Analyst Outlook:** A crypto strategist who accurately predicted the 2022 Bitcoin bottom suggests that BTC may be on the verge of a parabolic surge, potentially mirroring gold’s breakout of 2024.\n*   **On-Chain Metrics:** Despite Bitcoin's price remaining close to its all-time high of $111,700, on-chain metrics have crashed to bear market levels.\n*   **Price Dip:** Bitcoin's price slipped below $102,000 after a tough start to the weekend, dropping from a high of $106,000 on Friday, June 20. It has since stabilized around $104,000.\n*   **Bitcoin Stocks:** Marathon Digital, IREN, Riot Platforms, Cleanspark, and TeraWulf are identified as Bitcoin stocks worth watching.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-b1132464-77d3-49de-ba47-0cc76b0a51e9",
+                "args": {
+                  "page_size": 5,
+                  "searchIn": "title",
+                  "q": "bitcoin",
+                  "sort_by": "publishedAt",
+                  "page": 1
+                },
+                "name": "fetch_news_articles"
+              }
+            ],
+            "intermediate_responses": [
+              [
+                "MasterPlannerAgent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "[\"news_agent\", \"summarizer_agent\"]"
+                  }
+                ]
+              ],
+              [
+                "news_agent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "News Articles Fetched Successfully"
+                  }
+                ]
+              ]
+            ]
+          },
+          "creation_timestamp": 1750663591.835419
+        },
+        {
+          "invocation_id": "e-1e849aae-33f3-49f1-9fb1-f671e934e90c",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "which was the first spacex launch"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "SpaceX's first launch was the Falcon 1 | FalconSAT-2, which took place on March 24, 2006, from the Ronald Reagan Ballistic Missile Defense Test Site, Kwajalein Atoll, Marshall Islands (9.047861° N, 167.743° E). The launch vehicle did not reach orbit, as the engine failed at T+33 seconds. The mission's payload, FalconSAT-2, was a satellite built by students of the United States Air Force Academy. The satellite was intended to study the effects of plasma on communications with spacecraft but failed to reach orbit. The satellite ended up landing in a storage shed on Omelek Island, near its shipping container.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-2ff4ca6f-b1ce-415e-b6b1-00c1db441461",
+                "args": {
+                  "time_filter": "first",
+                  "count": 1,
+                  "agency": "spacex"
+                },
+                "name": "fetch_launch_info"
+              }
+            ],
+            "intermediate_responses": [
+              [
+                "MasterPlannerAgent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "[\"launches_agent\", \"summarizer_agent\"]"
+                  }
+                ]
+              ],
+              [
+                "launches_agent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "Launch Information Fetched Successfully\n"
+                  }
+                ]
+              ]
+            ]
+          },
+          "creation_timestamp": 1750663617.679609
+        },
+        {
+          "invocation_id": "e-94779f87-a2e8-4ce0-bb6a-d0c143be66e4",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what would the weather be like tomorrow in delhi"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The weather in Delhi tomorrow, June 24, 2025, will be partly cloudy with a chance of light rain. Temperatures will range from a minimum of 27.7°C to a maximum of 35.8°C. There's a slight precipitation probability throughout the day, with a total precipitation of 0.3mm expected. Wind speeds will range from 4.3 km/h to 7.0 km/h, with gusts up to 23.4 km/h. Visibility is expected to be around 24140 meters for most of the day, but may decrease to 10400 meters around 1 PM.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-a02f5d17-e7a3-4241-bbf8-bfba68a4a7d5",
+                "args": {},
+                "name": "get_current_date_tool"
+              },
+              {
+                "id": "adk-d526a829-02fa-4523-86b0-27f8e75b3e2e",
+                "args": {
+                  "date": "2025-06-24",
+                  "lat": 28.61,
+                  "lon": 77.23
+                },
+                "name": "fetch_weather_info"
+              }
+            ],
+            "intermediate_responses": [
+              [
+                "MasterPlannerAgent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "[\"weather_agent\", \"summarizer_agent\"]"
+                  }
+                ]
+              ],
+              [
+                "weather_agent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "Weather Information fetched successfully\n"
+                  }
+                ]
+              ]
+            ]
+          },
+          "creation_timestamp": 1750663697.336655
+        }
+      ],
+      "session_input": {
+        "app_name": "Multi-Agent-System (Google ADK)",
+        "user_id": "user",
+        "state": {}
+      },
+      "creation_timestamp": 1750663737.831776
+    }
+  ],
+  "creation_timestamp": 1750662848.6128614
+}

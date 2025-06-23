@@ -1,0 +1,499 @@
+{
+  "eval_set_id": "evalset1",
+  "name": "evalset1",
+  "description": null,
+  "eval_cases": [
+    {
+      "eval_id": "evalsession1",
+      "conversation": [],
+      "session_input": {
+        "app_name": "Multi-Agent-System (Google ADK)",
+        "user_id": "user",
+        "state": {}
+      },
+      "creation_timestamp": 1750662098.4062746
+    },
+    {
+      "eval_id": "evalsessiontest",
+      "conversation": [
+        {
+          "invocation_id": "e-e41f3a95-eba8-431a-a088-e69209bd50a1",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "upcoming nasa launch"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The next scheduled NASA launch is the GSLV Mk II | NISAR (NASA-ISRO Synthetic Aperture Radar), planned for July 16, 2025, from Satish Dhawan Space Centre, India (Latitude: 13.7199, Longitude: 80.2304). The mission is currently awaiting official confirmation, but the date is known with some certainty. The NISAR satellite will employ advanced radar imaging to map Earth's land and ice masses multiple times per month, observing complex natural processes and hazards. NASA is providing the L band synthetic aperture radar (SAR), a high-rate telecommunication subsystem, GPS receivers, a solid-state recorder, and a payload data subsystem. ISRO is providing the satellite bus, an S band synthetic aperture radar, the launch vehicle, and associated launch services.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-c4707405-6421-4c38-967b-7087f6f4af21",
+                "args": {
+                  "time_filter": "upcoming",
+                  "count": 1,
+                  "agency": "nasa"
+                },
+                "name": "fetch_launch_info"
+              }
+            ],
+            "intermediate_responses": [
+              [
+                "MasterPlannerAgent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "[\"launches_agent\", \"summarizer_agent\"]"
+                  }
+                ]
+              ],
+              [
+                "launches_agent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "Launch Information Fetched Successfully\n"
+                  }
+                ]
+              ]
+            ]
+          },
+          "creation_timestamp": 1750662281.00681
+        },
+        {
+          "invocation_id": "e-39ce6476-7e80-46d4-9798-84d4326f31a4",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "find the next spacex launch, check weather at that location, then summarize if it may be delayed"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "SpaceX is scheduled to launch a Falcon 9 Block 5 rocket carrying a batch of 27 Starlink satellites (Group 10-23) on June 23, 2025, from Cape Canaveral SFS, FL, USA (28.56194122, -80.57735736). The weather forecast for that day includes a maximum temperature of 30.8°C and a minimum of 23.9°C, with no precipitation expected. Wind speeds may reach up to 14.8 km/h, with gusts up to 21.6 km/h. There's a low precipitation probability throughout the day and the visibility will be good. Therefore, based on the weather data, there doesn't seem to be any immediate indicators for a potential launch delay.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-3baf6c1c-fab4-4b7f-98fe-95c4bba01683",
+                "args": {
+                  "agency": "spacex",
+                  "count": 1,
+                  "time_filter": "upcoming"
+                },
+                "name": "fetch_launch_info"
+              },
+              {
+                "id": "adk-0e69471a-96f1-46ca-be7c-6e9e3318e5c8",
+                "args": {
+                  "lat": 28.56194122,
+                  "lon": -80.57735736,
+                  "date": "2025-06-23"
+                },
+                "name": "fetch_weather_info"
+              }
+            ],
+            "intermediate_responses": [
+              [
+                "MasterPlannerAgent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "[\"launches_agent\", \"weather_agent\", \"summarizer_agent\"]"
+                  }
+                ]
+              ],
+              [
+                "launches_agent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "Launch Information Fetched Successfully\n"
+                  }
+                ]
+              ],
+              [
+                "weather_agent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "Weather Information fetched successfully\n"
+                  }
+                ]
+              ]
+            ]
+          },
+          "creation_timestamp": 1750662408.450695
+        },
+        {
+          "invocation_id": "e-99e9f16f-4f39-42f7-a57b-7231f73bd83c",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "do you mind giving some latest information about space launches"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "Here's the latest information regarding space launches:\n\n*   **Honda's Reusable Rocket:** Japan's Honda has successfully tested a reusable rocket with propulsive landing capabilities, aiming to reach space by 2029.\n*   **SpaceX Falcon 9 Launch:** SpaceX successfully launched a Falcon 9 rocket from Vandenberg Space Force Base, adding 26 satellites to its Starlink constellation.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-ade803b1-7b61-47d6-9a5c-2e52757964d4",
+                "args": {
+                  "searchIn": "title",
+                  "page": 1,
+                  "page_size": 5,
+                  "sort_by": "publishedAt",
+                  "q": "space launches"
+                },
+                "name": "fetch_news_articles"
+              }
+            ],
+            "intermediate_responses": [
+              [
+                "MasterPlannerAgent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "[\"news_agent\", \"summarizer_agent\"]"
+                  }
+                ]
+              ],
+              [
+                "news_agent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "News Articles Fetched Successfully"
+                  }
+                ]
+              ]
+            ]
+          },
+          "creation_timestamp": 1750662510.716394
+        },
+        {
+          "invocation_id": "e-08494520-9a16-4b4c-9cb5-5178c28b41a3",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "how about some news about artificial intelligence"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "Here's some recent news regarding artificial intelligence:\n\n*   **AI Data Center Stock Prediction:** There's a prediction that an Artificial Intelligence (AI) data center stock will surpass Palantir in value by 2030.\n*   **AI-Related Fraud Lawsuit:** A lawsuit has been filed against US banks following a $20,000 fraudulent transfer allegedly triggered by artificial intelligence.\n*   **Investment in AI Technology ETF:** Wealth Enhancement Advisory Services LLC has increased its holdings in the Global X Artificial Intelligence & Technology ETF.\n*   **AI in Land Registry:** Artificial Intelligence is being implemented in the Land Registry to resolve outstanding issues and boundary problems.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-b6f287f1-0803-4f6e-9c13-d2db61fd7ddc",
+                "args": {
+                  "page": 1,
+                  "q": "artificial intelligence",
+                  "sort_by": "publishedAt",
+                  "searchIn": "title",
+                  "page_size": 5
+                },
+                "name": "fetch_news_articles"
+              }
+            ],
+            "intermediate_responses": [
+              [
+                "MasterPlannerAgent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "[\"news_agent\", \"summarizer_agent\"]"
+                  }
+                ]
+              ],
+              [
+                "news_agent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "News Articles Fetched Successfully"
+                  }
+                ]
+              ]
+            ]
+          },
+          "creation_timestamp": 1750662549.929757
+        },
+        {
+          "invocation_id": "e-13d8f886-1560-4176-97ab-dd040f16247c",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what would the weather be like tomorrow in bengaluru"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The weather in Bengaluru tomorrow (June 24, 2025) will be characterized by a high level of cloud cover throughout the day, with a chance of light rain. The temperature will range from a minimum of 20.1°C to a maximum of 26.8°C. There's a precipitation probability between 3% and 23% during the day, with a total precipitation of 0.3mm expected. The wind will be quite strong, with speeds reaching up to 24.1 km/h and gusts up to 60.5 km/h. Visibility will be excellent at 24140 meters.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-5b04ac60-a8a3-477b-9d26-85c636c1f08a",
+                "args": {},
+                "name": "get_current_date_tool"
+              },
+              {
+                "id": "adk-1cf91c9c-b0f7-47a2-8331-c2ee251022a8",
+                "args": {
+                  "lon": 77.59,
+                  "date": "2025-06-24",
+                  "lat": 12.97
+                },
+                "name": "fetch_weather_info"
+              }
+            ],
+            "intermediate_responses": [
+              [
+                "MasterPlannerAgent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "[\"weather_agent\", \"summarizer_agent\"]"
+                  }
+                ]
+              ],
+              [
+                "weather_agent",
+                [
+                  {
+                    "video_metadata": null,
+                    "thought": null,
+                    "inline_data": null,
+                    "file_data": null,
+                    "thought_signature": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "text": "Weather Information fetched successfully\n"
+                  }
+                ]
+              ]
+            ]
+          },
+          "creation_timestamp": 1750662608.12848
+        }
+      ],
+      "session_input": {
+        "app_name": "Multi-Agent-System (Google ADK)",
+        "user_id": "user",
+        "state": {}
+      },
+      "creation_timestamp": 1750662656.4862232
+    }
+  ],
+  "creation_timestamp": 1750662091.1550057
+}
